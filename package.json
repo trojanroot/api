@@ -1,0 +1,21 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Ecommerce API",
+  "homepage": "https://github.com/trojanroot/api#readme",
+  "bugs": {
+    "url": "https://github.com/trojanroot/api/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trojanroot/api.git"
+  },
+  "license": "ISC",
+  "author": "Sam",
+  "type": "module",
+  "main": "node.js",
+  "scripts": {
+    "dev":"node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
