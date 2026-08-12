@@ -15,7 +15,11 @@
   "type": "module",
   "main": "node.js",
   "scripts": {
-    "dev":"node main.js",
+    "dev": "node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
   }
 }
