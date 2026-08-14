@@ -2,6 +2,8 @@ import express, { response } from "express";
 import fs from 'fs/promises';
 
 import config from "../src/config/config.js"
+import usersRoute from "./routes/user.routes.js"
+
 const app= express();
 
 app.get("/",(request,response)=>{
@@ -16,22 +18,12 @@ app.get("/contact",(req,res)=>{
     res.send("<h1>Welcome to Contact Page.</h1>");
 });
 
-app.get("/users",async (req,res)=>{
-    const users= await fs.readFile("../../data/user.json","utf-8");
-    res.JSON(JSON.parse(users));
-});
 
-app.get("/users/:usersId",async (req,res)=>{
-    const id=req.params.usersId;
-    const users= await fs.readFile("../../data/user.json","utf-8");
-    const user=JSON.parse(users).find((user)=>user.id==id);
 
-    if(!user){
-      return  res.send("User is not Found");
-    }
-    
-    res.json(user);
-})
+
+
+app.use("/",usersRoute);
+
 
 app.listen(config.port,()=>{
     console.log(`Server is Running ${config.port}...`);
