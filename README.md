@@ -1,0 +1,89 @@
+Node.js
+Node.js is a JS runtime environment.
+Runtime enviroment: A program that runs another program.
+With the help of node.js, we can run JS in local machine.
+Used to build: API, real time apps, micro-services, server
+Built on C++
+Powered by Google Chrome V8 engine
+Architecture
+Single threaded
+Non-blocking I/O operation
+Event loop
+API (Application program interface)
+Node.js modules
+File System
+Path
+Url
+HTTP
+Event
+OS
+Async Programming
+Callback
+Promise
+Async/Await
+Express.js
+It is a Node.js API/Web framework.
+Used to build API
+Minimalist, fast, unopinionated framework
+It simplifies the HTTP module of node.js
+HTTP Methods
+GET (Read/Fetch)
+POST (Create)
+PUT (Update)
+DELETE (Delete)
+PATCH (Partial Update)
+REST (Representational State Transfer) API
+JSON.stringify(): JS Object => JSON JSON.parse(): JSON => JS Object
+
+JSON => JavaScript Object Notation => Lightweight string format
+
+Get users data: GET /users Create user: POST /users Create product: POST /products Update product: PUT /products/:id
+
+Layered Architecture
+API Layer a. Routes: Endpoints b. Controllers: Request/Response c. Middlewares: Auth
+Business Logic Layer a. Services
+Data layer a. Models: Schemas
+MongoDB
+Non-relational database
+Data are stored in collections & documents
+Database: Main container, all collections and data are stored
+Collection: Equivalent to table of relational DB
+Document: Equivalent to Row
+Field: Equivalent to Column
+Tools used
+Local: MongoDB Compass
+Cloud: MongoDB Atlas
+Run MongoDB in compass
+Open mongodb compass
+Setup a new connection (mongodb://localhost:27017)[mongodb://localhost:27017]
+MongoDB Queries
+show dbs : Show list of databases
+use <dbname> : Use existing db or create a new one and use it
+cls : Clear screen
+show collections : Show list of collections
+Create
+db.users.insertOne({name:"Ram"})
+db.users.insertMany([{name:"Sita"},{name:"Gita"}])
+Read
+db.users.find()
+db.users.find({age:20})
+db.users.findOne({age:20})
+Update
+db.users.updateOne({name:"Ram"}, {$set:{age:23}})
+Delete
+db.users.deleteOne({name:"Ram"})
+Complex filters
+$eq: db.users.find({name:{$eq:"Mina"}})
+$ne: db.users.find({name:{$ne:"Mina"}})
+$gt/$gte: db.users.find({age:{$gte:20}})
+$lt/$lte: db.users.find({age:{$lte:20}})
+$and: db.users.find({$and:[{name:"Mina"}, {age:30}]})
+$and: db.users.find({$or:[{name:"Mina"}, {age:30}]})
+a. limit: db.users.find().limit(3) b. skip: db.users.find().skip(1) c. sort: db.users.find().sort({name:-1}) | ASC (1), DESC (-1)
+
+Mongoose
+ODM (Object Data Modeling) of MongoDB for Node.js
+Create schema (properties or rules of a data/entity)
+Validate schema
+Create models (usable form of schema) using schema
+Relationships
