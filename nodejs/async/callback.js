@@ -6,20 +6,26 @@
  * test1 => callback function
  * test2 => higher order function
  */
-// function test1(){}
-// function test2(){}
+
+// function test1() {}
+
+// function test2() {}
 
 // test2(test1);
 
 import fs from "fs";
 
+// fs.readFile("data/note.txt", "utf-8", (error, data) => {
+//   console.log(data);
+// });
 
-fs.readFile("../../data/user.json","utf-8",(userError,users)=>{
-    if(userError){
-        console.log(userError);
-    }
-    else{
-        console.log(users);
+// callback hell
+fs.readFile("data/users.json", "utf-8", (userError, users) => {
+  if (userError) {
+    console.log(userError);
+  } else {
+    console.log(users);
+
     fs.readFile("data/posts.json", "utf-8", (postError, posts) => {
       if (postError) {
         console.log(postError);

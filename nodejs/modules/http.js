@@ -1,32 +1,36 @@
-//This is a module not a links 
-import http from "http"
+import http from "http";
 
-const server=http.createServer((request,response)=>{
-    // console.log(response);
-    console.log(response.url)
-    switch(request.url){
-        case '/about':
-            return response.end("<h1>About Page</h1>");
-        case '/contact':
-            return response.end("<h1>Contact Page</h1>");
-        case '/':
-            return response.end("<h1>Home Page</h1>");   
-        default:
-            response.writeHead(404);
-            return response.end("<h1>404 Page not Found</h1>");
-    }
+const server = http.createServer((request, response) => {
+  console.log(request.url);
 
-        response.writeHead(400,{
-        "contain-type":"application/json",
-    });
+  switch (request.url) {
+    case "/about":
+      return response.end("<h1>About page</h1>");
 
-    response.end(JSON.stringify({String:"Ok"}));
-    // response.writeHead(200,{
-    //     "contain-type":"text/plain",
-    // });
-    response.write("Hello World");
-    // response.end("<h1>Hello World</h1>");
+    case "/contact":
+      return response.end("<h1>Contact page</h1>");
+
+    case "/":
+      return response.end("<h1>Home page</h1>");
+
+    default:
+      response.writeHead(404);
+      return response.end("<h1>404 page not found.</h1>");
+  }
+
+  //   response.writeHead(200, {
+  //     "content-type": "application/json",
+  //   });
+
+  //   response.end(JSON.stringify({ status: "Ok" }));
+
+  //   response.writeHead(200, {
+  //     "content-type": "text/html",
+  //   });
+
+  //   response.end("<h1>Hello world</h1>");
 });
-server.listen(3000,()=>{
-    console.log("Server Running at port 3000");
-});//3000 is a port.
+
+server.listen(3000, () => {
+  console.log("Server running at port 3000...");
+});

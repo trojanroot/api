@@ -1,12 +1,15 @@
-import express from 'express'
-import userController from '../controllers/user.controllers'
-const router=express.Router();
+import express from "express";
+import userController from "../controllers/user.controllers.js";
 
+const router = express.Router();
 
+router.get("/", userController.getUsers);
 
-router.get("/users",userController.getUsers);
+// Dynamic route params
+router.get("/:userId", userController.getUserById);
 
- 
-router.get("/users/:usersId",userController.getUserByID);
+router.post("/", userController.createUser);
+
+router.delete("/:userId", userController.deleteUser);
 
 export default router;

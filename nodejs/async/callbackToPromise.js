@@ -1,18 +1,17 @@
-import fs from "fs/promises"
+import fs from "fs";
 
-const fetchUsesr=()=>
-new Promise((resolve,reject)=>{
-    fs.readFile("../../data/user.json","utf-8",(error,data)=>{
-    console.log(data);
-    if(error){
+const fetchUsers = () =>
+  new Promise((resolve, reject) => {
+    fs.readFile("data/users.json", "utf-8", (error, data) => {
+      if (error) {
         reject(error);
-    }else{
+      } else {
         resolve(data);
-    }
-});
-});
-(async ()=>{ 
-    const users= await fetchUsesr();
-    console.log(users);
-})
-();
+      }
+    });
+  });
+
+(async () => {
+  const users = await fetchUsers();
+  console.log(users);
+})();

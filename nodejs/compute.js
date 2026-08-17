@@ -1,4 +1,6 @@
-function square(value){
-    return value * value;
+function square(value) {
+  return value * value;
 }
-export {square};
+
+// export default square
+export { square };

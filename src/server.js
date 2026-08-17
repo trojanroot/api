@@ -1,30 +1,30 @@
-import express, { response } from "express";
-import fs from 'fs/promises';
+import express from "express";
+import fs from "fs/promises";
 
-import config from "../src/config/config.js"
-import usersRoute from "./routes/user.routes.js"
+import config from "./config/config.js";
+import usersRoute from "./routes/user.routes.js";
+import productsRoute from "./routes/product.routes.js";
+import connectDB from "./config/database.js";
 
-const app= express();
+const app = express();
 
-app.get("/",(request,response)=>{
-    response.send("Home page");
+connectDB();
+
+app.get("/", (request, response) => {
+  response.send("Home page");
 });
 
-app.get("/about",(req,res)=>{
-    res.send("About Page");
+app.get("/about", (req, res) => {
+  res.send("<h1>About page</h1>");
 });
 
-app.get("/contact",(req,res)=>{
-    res.send("<h1>Welcome to Contact Page.</h1>");
+app.get("/contact", (req, res) => {
+  res.send("<h1>Welcome to Contact page</h1>");
 });
 
+app.use("/api/users", usersRoute);
+app.use("/api/products", productsRoute);
 
-
-
-
-app.use("/",usersRoute);
-
-
-app.listen(config.port,()=>{
-    console.log(`Server is Running ${config.port}...`);
-})
+app.listen(config.port, () => {
+  console.log(`Server running at port ${config.port}...`);
+});
